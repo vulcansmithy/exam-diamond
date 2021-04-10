@@ -5,10 +5,13 @@ Diamond.new.main if __FILE__ == $PROGRAM_NAME
 
 class Diamond
   def main
-    puts "Running Main.new.main..."
     
-    level  = 3
-    border = 2
+    level  = 6
+    border = 3
+    
+    puts
+    puts "level=#{level} border=#{border}"
+    puts 
     
        top_part(level, border)
     middle_part(level, border)
@@ -31,7 +34,7 @@ class Diamond
           if print_border?(star_counter, no_of_stars, border)
             print "*"
           else
-            print " "
+            print "-"
           end  
         end  
       end   
@@ -48,7 +51,7 @@ class Diamond
       if print_border?(star_counter, no_of_stars, border)
         print "*"
       else
-        print " "
+        print "-"
       end 
     end
     puts
