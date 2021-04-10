@@ -1,9 +1,14 @@
+$VERBOSE = nil
+
 require "./diamond.rb"
 
 # this enable this ruby script to be run from the command line
 Diamond.new.main if __FILE__ == $PROGRAM_NAME
 
 class Diamond
+  
+  STAR  = "*"
+  SPACE = "-"
   
   def initialize
     @no_of_stars = 1
@@ -27,7 +32,7 @@ class Diamond
   
   def top_part(level, border)
     (level -1).downto 1 do |no_of_spaces|
-      no_of_spaces.times { print "-" }
+      no_of_spaces.times { print SPACE }
 
       render_star_and_spaces(border)
 
