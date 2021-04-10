@@ -23,7 +23,7 @@ class Diamond
         end
       else
         no_of_stars.times do |star_counter|
-          if (star_counter >= (no_of_stars -border)) or (star_counter < border)
+          if print_border?(star_counter, no_of_stars, border)
             print "*"
           else
             print " "
@@ -37,5 +37,9 @@ class Diamond
       puts
     end  
   end
-
+  
+  def print_border?(star_index, no_of_stars, border_size)
+    (star_index >= (no_of_stars -border_size)) or (star_index < border_size) ? true : false
+  end
+    
 end
