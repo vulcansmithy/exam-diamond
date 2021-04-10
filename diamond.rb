@@ -84,6 +84,6 @@ class Diamond
   end  
   
   def print_border?(star_index, no_of_stars, border_size)
-    (star_index >= (no_of_stars -border_size)) or (star_index < border_size) ? true : false
+    (star_index >= (no_of_stars - border_size)) or (star_index < border_size) ? true : false
   end
 end
