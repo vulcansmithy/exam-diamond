@@ -4,6 +4,12 @@ require "./diamond.rb"
 Diamond.new.main if __FILE__ == $PROGRAM_NAME
 
 class Diamond
+  
+  def initialize
+    @no_of_stars = 1
+  end
+    
+  
   def main
     
     level  = 6
@@ -20,19 +26,18 @@ class Diamond
   
   def top_part(level, border)
     level_count = 1
-    no_of_stars = 1
 
     #pad the space
     (level -1).downto 1 do |no_of_spaces|
       no_of_spaces.times { print "-" }
 
       if level_count < border + 1
-        no_of_stars.times do
+        @no_of_stars.times do
           print "*"
         end
       else
-        no_of_stars.times do |star_counter|
-          if print_border?(star_counter, no_of_stars, border)
+        @no_of_stars.times do |star_counter|
+          if print_border?(star_counter, @no_of_stars, border)
             print "*"
           else
             print "-"
@@ -40,16 +45,15 @@ class Diamond
         end  
       end   
        
-      no_of_stars = no_of_stars + 2  
+      @no_of_stars = @no_of_stars + 2  
       level_count = level_count + 1
       puts
     end  
   end
   
   def middle_part(level, border)
-    no_of_stars = (level * 2) - 1
-    no_of_stars.times do |star_counter|
-      if print_border?(star_counter, no_of_stars, border)
+    @no_of_stars.times do |star_counter|
+      if print_border?(star_counter, @no_of_stars, border)
         print "*"
       else
         print "-"
@@ -63,10 +67,8 @@ class Diamond
   end
   
   def bottom_part(level, border)
-    
     level_count = 1
-    no_of_stars = 1
-    
+
     for no_of_spaces in 1..(level - 1) do
        no_of_spaces.times { print "-" }
        puts "*"
