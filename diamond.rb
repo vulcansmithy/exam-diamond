@@ -8,7 +8,7 @@ Diamond.new.main if __FILE__ == $PROGRAM_NAME
 class Diamond
   
   STAR  = "*"
-  SPACE = "-"
+  SPACE = " "
   
   def initialize
     @no_of_stars = 1
@@ -19,7 +19,7 @@ class Diamond
   def main
     
     level  = 5
-    border = 3
+    border = 2
     
     puts
     puts "level=#{level} border=#{border}"
