@@ -13,8 +13,8 @@ class Diamond
   
   def main
     
-    level  = 6
-    border = 3
+    level  = 10
+    border = 4
     
     puts
     puts "level=#{level} border=#{border}"
@@ -43,10 +43,10 @@ class Diamond
           end  
         end  
       end   
+      puts
        
       @no_of_stars = @no_of_stars + 2  
       @level_count = @level_count + 1
-      puts
     end  
   end
   
@@ -66,12 +66,26 @@ class Diamond
   end
   
   def bottom_part(level, border)
-    level_count = 1
-
     for no_of_spaces in 1..(level - 1) do
-       no_of_spaces.times { print "-" }
-       @level_count = @level_count - 1
-       puts "* #{@level_count}"
+      @no_of_stars = @no_of_stars - 2 
+      @level_count = @level_count - 1
+
+      no_of_spaces.times { print "-" }
+      
+      if @level_count < border + 1
+        @no_of_stars.times do
+          print "*"
+        end
+      else
+        @no_of_stars.times do |star_counter|
+          if print_border?(star_counter, @no_of_stars, border)
+            print "*"
+          else
+            print "-"
+          end  
+        end  
+      end      
+      puts
     end
   end
 end
