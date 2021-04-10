@@ -13,8 +13,8 @@ class Diamond
   
   def main
     
-    level  = 10
-    border = 4
+    level  = 3
+    border = 3
     
     puts
     puts "level=#{level} border=#{border}"
@@ -30,6 +30,7 @@ class Diamond
     (level -1).downto 1 do |no_of_spaces|
       no_of_spaces.times { print "-" }
 
+=begin
       if @level_count < border + 1
         @no_of_stars.times do
           print "*"
@@ -44,6 +45,9 @@ class Diamond
         end  
       end   
       puts
+=end
+      render_star_and_spaces(border)
+            
        
       @no_of_stars = @no_of_stars + 2  
       @level_count = @level_count + 1
@@ -71,7 +75,8 @@ class Diamond
       @level_count = @level_count - 1
 
       no_of_spaces.times { print "-" }
-      
+  
+=begin
       if @level_count < border + 1
         @no_of_stars.times do
           print "*"
@@ -86,6 +91,26 @@ class Diamond
         end  
       end      
       puts
+=end      
+      render_star_and_spaces(border)
     end
   end
+  
+  def render_star_and_spaces(border)
+    if @level_count < border + 1
+      @no_of_stars.times do
+        print "*"
+      end
+    else
+      @no_of_stars.times do |star_counter|
+        if print_border?(star_counter, @no_of_stars, border)
+          print "*"
+        else
+          print "-"
+        end  
+      end  
+    end   
+    puts
+  end  
+    
 end
