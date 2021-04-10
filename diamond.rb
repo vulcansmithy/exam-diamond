@@ -4,6 +4,8 @@ require "./diamond.rb"
 Diamond.new.main if __FILE__ == $PROGRAM_NAME
 
 class Diamond
+  
+  SPACE = "-"
 
   def main
     puts "Running Main.new.main..."
@@ -12,10 +14,8 @@ class Diamond
   
   def exp1(level, border)
     #pad the space
-    (level -1).downto 1 do |i|
-      i.times do
-        print "-"
-      end
+    (level -1).downto 1 do |no_of_spaces|
+      no_of_spaces.times { print SPACE }
       puts "x"  
     end  
   end
