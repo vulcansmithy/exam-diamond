@@ -6,7 +6,7 @@ Diamond.new.main if __FILE__ == $PROGRAM_NAME
 class Diamond
   def main
     puts "Running Main.new.main..."
-    exp1(6, 2)
+    exp1(8, 1)
   end
   
   def exp1(level, border)
@@ -22,13 +22,23 @@ class Diamond
           print "*"
         end
       else
-        no_of_stars.times do
-          print "x"
+        no_of_stars.times do |star_counter|
+          ##
+          ##
+          if star_counter >= (no_of_stars - border) 
+            print ">"
+          elsif star_counter < border
+            print "<"
+          else
+            print " "
+          end    
+          ##
+          ##
         end  
       end   
        
       no_of_stars = no_of_stars + 2  
-      puts " #{level_count}"
+      puts ""
       level_count = level_count + 1
     end  
   end
