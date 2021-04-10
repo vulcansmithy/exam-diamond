@@ -7,6 +7,7 @@ class Diamond
   
   def initialize
     @no_of_stars = 1
+    @level_count = 1
   end
     
   
@@ -25,13 +26,11 @@ class Diamond
   end
   
   def top_part(level, border)
-    level_count = 1
-
     #pad the space
     (level -1).downto 1 do |no_of_spaces|
       no_of_spaces.times { print "-" }
 
-      if level_count < border + 1
+      if @level_count < border + 1
         @no_of_stars.times do
           print "*"
         end
@@ -46,7 +45,7 @@ class Diamond
       end   
        
       @no_of_stars = @no_of_stars + 2  
-      level_count = level_count + 1
+      @level_count = @level_count + 1
       puts
     end  
   end
@@ -71,7 +70,8 @@ class Diamond
 
     for no_of_spaces in 1..(level - 1) do
        no_of_spaces.times { print "-" }
-       puts "*"
+       @level_count = @level_count - 1
+       puts "* #{@level_count}"
     end
   end
 end
