@@ -15,6 +15,7 @@ class Diamond
     
        top_part(level, border)
     middle_part(level, border)
+    bottom_part(level, border)
   end
   
   def top_part(level, border)
@@ -59,5 +60,16 @@ class Diamond
       
   def print_border?(star_index, no_of_stars, border_size)
     (star_index >= (no_of_stars -border_size)) or (star_index < border_size) ? true : false
+  end
+  
+  def bottom_part(level, border)
+    
+    level_count = 1
+    no_of_stars = 1
+    
+    for no_of_spaces in 1..(level - 1) do
+       no_of_spaces.times { print "-" }
+       puts "*"
+    end
   end
 end
